@@ -1,7 +1,7 @@
 var commands = require("./commands");
 var _busy;
 module.exports = function(msg) {
-  if(msg.a.toLowerCase().includes("oof") && !msg.a.startsWith(config.cmdChar)) { 
+  if(msg.a.toLowerCase().includes("oof") && !msg.a.startsWith(config.cmdChar) && msg.p._id !== client.getOwnParticipant()._id) { 
 			client.sendArray([{m:'a', message: "Oof!"}]);
 	  }
   if (!msg.a.startsWith(config.cmdChar)) return;
