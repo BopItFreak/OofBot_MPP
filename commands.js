@@ -17,19 +17,19 @@ module.exports = {
    say(jokes[Math.floor(Math.random() * jokes.length)])   
   },
   oofencode: function(msg, args, txt, say,input) {
-  if(!args[1]) say(usages.oofencode); return;
+  if(!args[1]) {say(usages.oofencode); return;}
   say(require("./oof.js").encode(input));
    
     
   },
   oofdecode: function(msg, args, txt, say, input) {
-  if(!args[1]) say(usages.oofdecode); return;
+  if(!args[1]) {say(usages.oofdecode); return;}
   say(require("./oof.js").decode(input));
    
     
   },
   chat: function(msg,args,txt,say,input) {
-  if(!args[1]) say(usages.chat); return;
+  if(!args[1]) {say(usages.chat); return;}
   var getJSON = require("get-json");
   getJSON("https://api.susi.ai/susi/chat.json?q="+input, function(error, data){
 	if(error){
@@ -59,7 +59,31 @@ module.exports = {
       } catch (e) {
         say('> ' + e);
       }
-  }
-   
+  },
+  ping: function(msg, args, txt, say,input,time) {     
+	say("Pong! (" + (Date.now() - time) + ")ms");
+		
+	
+  },
+  trumpquote: function(msg, args, txt, say,input,time) {     
+	 if(!args[1]) {say(usages.donald); return;}
+	const Tronald = require('tronalddump-io'),
+      client = new Tronald();
+	  client.search(input).then((res) => {
+    say(res._embedded.quotes[Math.floor(Math.random() * res._embedded.quotes.length)].value);
+	}).catch((err) => {
+    //console.log(err);
+	say("⚠️ No quote found! ⚠️");
+	});
+		
+	
+  },
+  trumptweet: function(msg, args, txt, say,input,time) {     
+	var TrumpTweets=require('trump-tweets');
+
+	say(TrumpTweets());
+		
+	
+  } 
   
 }

@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "mpp-client": "^0.2.1"
+    "mpp-client": "^0.2.1",
+    "tronalddump-io": "^1.0.1",
+    "trump-tweets": "^1.0.3",
+    "wikijs": "^4.10.0",
+    "wikipediajs": "^1.4.0"
   }
 }
