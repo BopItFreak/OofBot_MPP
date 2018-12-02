@@ -1,6 +1,7 @@
 var commands = require("./commands");
 var _busy;
 module.exports = function(msg) {
+  if(msg.a.toLowerCase().includes("oof")) && !msg.a.startsWith(config.cmdChar)) { say("Oof!")}
   if (!msg.a.startsWith(config.cmdChar)) return;
   
   var args = msg.a.split(' ');
