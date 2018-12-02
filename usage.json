@@ -1,0 +1,6 @@
+{
+
+  "oofencode": "Usage: " + config.cmdChar + "oofencode"  + "[input]"
+
+}
+
