@@ -10,5 +10,11 @@ client.on("hi", function(){
 client.on("p",function(msg) {
   msg._id === client.getOwnParticipant()._id ? client.sendArray([{m:'userset', set: {name: config.botName}}]) : {};
 });
-
+client.on("ch", function(msg) {
+		if (msg.ch._id != "lobby") {
+      setTimeout(() => {
+        client.setChannel("lobby");
+    },1000)
+  }
+	});
 client.on("a", require("./commandHandler"));
